@@ -10,7 +10,7 @@ import './App.css';
      //   </div>
      // );
 
-  return React.createElement('div', null, React.createElement('h1', null, 'Hi, I\'m React App') );
+  return React.createElement('div',{ className: 'App'}, null, React.createElement('h1', null, 'Hi, I\'m React App') );
    }
 }
 
