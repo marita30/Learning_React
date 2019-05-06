@@ -10,8 +10,8 @@ import Person from './Person/Person.js';
        <div className="App">
         <h1> Hi, I'm a React App </h1>
         <p> This is really working!!</p>
-        <Person/>
-        <Person/>
+        <Person name="Maria Jose" age="22" />
+        <Person name="Cristopher Palacios" age="23" > My Hobbies: Playing Soccer </Person>
        </div>
      );
 
