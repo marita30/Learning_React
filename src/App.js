@@ -15,11 +15,11 @@ import Person from './Person/Person.js';
      otherState: 'Some other value'
    }
 //Agregando valor al botton
-   switchNameHandler = () => {
+   switchNameHandler = (newName) => {
   // console.log('Was clicked!');
      this.setState( {
        persons: [
-      { name: 'M.J', age: 22},
+      { name: newName, age: 22},
       { name: 'C.Palacios', age: 23}
      ] })
    }
@@ -29,9 +29,14 @@ import Person from './Person/Person.js';
        <div className="App">
         <h1> Hi, I'm a React App </h1>
         <p> This is really working!!</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} > My Hobbies: Playing Soccer </Person>
+        <button onClick={this.switchNameHandler.bind(this, 'M.J')}>Switch Name</button>
+        <Person
+         name={this.state.persons[0].name}
+         age={this.state.persons[0].age} />
+        <Person
+         name={this.state.persons[1].name}
+        age={this.state.persons[1].age}
+        click={this.switchNameHandler.bind(this, 'C.Palacios')}> My Hobbies: Playing Soccer </Person>
        </div>
      );
 
