@@ -21,7 +21,17 @@ import Person from './Person/Person.js';
        persons: [
       { name: newName, age: 22},
       { name: 'C.Palacios', age: 23}
-     ] })
+     ]
+    } )
+   }
+//function for input
+   nameChangedHandler = (event) => {
+     this.setState( {
+       persons: [
+      { name: 'Maria Jose', age: 22},
+      { name: event.target.value, age: 23}
+     ]
+    } )
    }
 
    render(){
@@ -36,7 +46,7 @@ import Person from './Person/Person.js';
         <Person
          name={this.state.persons[1].name}
         age={this.state.persons[1].age}
-        click={this.switchNameHandler.bind(this, 'C.Palacios')}> My Hobbies: Playing Soccer </Person>
+        changed={this.nameChangedHandler}> My Hobbies: Playing Soccer </Person>
        </div>
      );
 
