@@ -12,7 +12,8 @@ import Person from './Person/Person.js';
        { name: 'Maria Jose', age: 22 },
        { name: 'Cristopher Palacios', age: 23}
      ],
-     otherState: 'Some other value'
+     otherState: 'Some other value',
+     showPersons: false
    }
 //Agregando valor al botton
    switchNameHandler = (newName) => {
@@ -25,7 +26,7 @@ import Person from './Person/Person.js';
     } )
    }
 //function for input
-   nameChangedHandler = (event) => {
+ nameChangedHandler = (event) => {
      this.setState( {
        persons: [
       { name: 'Maria Jose', age: 22},
@@ -34,13 +35,20 @@ import Person from './Person/Person.js';
     } )
    }
 
+//Fuction para ocultar o mostrar las personas en el button
+togglePersonsHandler = () => {
+ const doesShow = this.state.showPersons;
+ this.setState({showPersons: !doesShow});
+}
+
    render(){
      //Dandole estilo con javascript al botton.
      const style = {
        backgroundColor: 'white',
        font: 'inherit',
        border: '1px solid blue',
-       padding: '8px'
+       padding: '8px',
+       cursor: 'pointer'
      };
 
      return (
@@ -49,14 +57,20 @@ import Person from './Person/Person.js';
         <p> This is really working!!</p>
         <button
         style={style}
-        onClick={() =>this.switchNameHandler('M.J')}>Switch Name</button>
-        <Person
-         name={this.state.persons[0].name}
-         age={this.state.persons[0].age} />
-        <Person
-         name={this.state.persons[1].name}
-        age={this.state.persons[1].age}
-        changed={this.nameChangedHandler}> My Hobbies: Playing Soccer </Person>
+        onClick={this.togglePersonsHandler}>Toggle Persons</button>
+
+      { this.state.showPersons === true ?
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age} />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            changed={this.nameChangedHandler}> My Hobbies: Playing Soccer </Person>
+        </div> : null
+      }
+
        </div>
      );
 
