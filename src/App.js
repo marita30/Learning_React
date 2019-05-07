@@ -5,6 +5,7 @@ import './App.css';
 import Person from './Person/Person.js';
 
  class App extends Component {
+   //agregando los parametros de Person , name y age en un arreglo.
    state = {
      persons: [
 
@@ -12,12 +13,17 @@ import Person from './Person/Person.js';
        { name: 'Cristopher Palacios', age: 23}
      ]
    }
+//Agregando valor al botton
+   switchNameHandler = () => {
+  console.log('Was clicked!');
+   }
+
    render(){
      return (
        <div className="App">
         <h1> Hi, I'm a React App </h1>
         <p> This is really working!!</p>
-        <button>Switch Name</button>
+        <button onClick={this.switchNameHandler}>Switch Name</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age} > My Hobbies: Playing Soccer </Person>
        </div>
