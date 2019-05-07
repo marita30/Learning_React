@@ -11,11 +11,17 @@ import Person from './Person/Person.js';
 
        { name: 'Maria Jose', age: 22 },
        { name: 'Cristopher Palacios', age: 23}
-     ]
+     ],
+     otherState: 'Some other value'
    }
 //Agregando valor al botton
    switchNameHandler = () => {
-  console.log('Was clicked!');
+  // console.log('Was clicked!');
+     this.setState( {
+       persons: [
+      { name: 'M.J', age: 22},
+      { name: 'C.Palacios', age: 23}
+     ] })
    }
 
    render(){
