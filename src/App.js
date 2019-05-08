@@ -28,7 +28,8 @@ import Person from './Person/Person.js';
 
    //metodo de eliminar persons
    deletePersonHandler = (personIndex) => {
-     const persons = this.state.persons;
+     // const persons = this.state.persons;
+     const persons = [...this.state.persons];
      persons.splice(personIndex, 1);
      this.setState({persons: persons})
 
