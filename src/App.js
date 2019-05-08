@@ -15,16 +15,7 @@ import Person from './Person/Person.js';
      otherState: 'Some other value',
      showPersons: false
    }
-//Agregando valor al botton
-   switchNameHandler = (newName) => {
-  // console.log('Was clicked!');
-     this.setState( {
-       persons: [
-      { name: newName, age: 22},
-      { name: 'C.Palacios', age: 23}
-     ]
-    } )
-   }
+
 //function for input
  nameChangedHandler = (event) => {
      this.setState( {
@@ -34,6 +25,15 @@ import Person from './Person/Person.js';
      ]
     } )
    }
+
+   //metodo de eliminar persons
+   deletePersonHandler = (personIndex) => {
+     const persons = this.state.persons;
+     persons.splice(personIndex, 1);
+     this.setState({persons: persons})
+
+   }
+
 
 //Fuction para ocultar o mostrar las personas en el button
 togglePersonsHandler = () => {
@@ -56,8 +56,8 @@ togglePersonsHandler = () => {
      if ( this.state.showPersons ) {
        persons = (
          <div>
-            {this.state.persons.map(person => {
-              return <Person name={person.name} age={person.age}/>
+            {this.state.persons.map((person, index) => {
+              return <Person click={() => this.deletePersonHandler(index)} name={person.name} age={person.age}/>
             })}
          </div>
        );
