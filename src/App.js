@@ -9,8 +9,8 @@ import Person from './Person/Person.js';
    state = {
      persons: [
 
-       { name: 'Maria Jose', age: 22 },
-       { name: 'Cristopher Palacios', age: 23}
+       {id: '1', name: 'Maria Jose', age: 22 },
+       { id: '2', name: 'Cristopher Palacios', age: 23}
      ],
      otherState: 'Some other value',
      showPersons: false
@@ -58,7 +58,7 @@ togglePersonsHandler = () => {
        persons = (
          <div>
             {this.state.persons.map((person, index) => {
-              return <Person click={() => this.deletePersonHandler(index)} name={person.name} age={person.age}/>
+              return <Person click={() => this.deletePersonHandler(index)} name={person.name} age={person.age} key={person.id}/>
             })}
          </div>
        );
