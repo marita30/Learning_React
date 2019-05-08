@@ -17,13 +17,26 @@ import Person from './Person/Person.js';
    }
 
 //function for input
- nameChangedHandler = (event) => {
-     this.setState( {
-       persons: [
-      { name: 'Maria Jose', age: 22},
-      { name: event.target.value, age: 23}
-     ]
-    } )
+ nameChangedHandler = (event, id) => {
+   const personIndex = this.state.persons.findIndex(p => {
+     return p.id === id;
+   });
+//nuevo objeto para la matriz nueva para no erjudicar la matriz anterior (copia de la amtriz original).
+   const person = {
+     ...this.state.persons[personIndex]
+   };
+//enfoque alternativo
+   // const person = Object.assign({}, this.state.persons[personIndex]);
+
+  person.name = event.target.value;
+
+  //Actualizar la matriz de personIndex (copias de la matriz original)
+  const persons = [...this.state.persons];
+  persons[personIndex] = person;
+
+
+
+     this.setState( { persons: persons} )
    }
 
    //metodo de eliminar persons
@@ -58,7 +71,12 @@ togglePersonsHandler = () => {
        persons = (
          <div>
             {this.state.persons.map((person, index) => {
-              return <Person click={() => this.deletePersonHandler(index)} name={person.name} age={person.age} key={person.id}/>
+              return <Person
+               click={() => this.deletePersonHandler(index)}
+               name={person.name}
+               age={person.age}
+               key={person.id}
+               changed={(event) => this.nameChangedHandler(event, person.id)}/>
             })}
          </div>
        );
