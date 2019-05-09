@@ -84,11 +84,13 @@ togglePersonsHandler = () => {
 //Cambiandole el color al boton cuado ya demuestre los nombres que se ponga en rojo.
        style.backgroundColor = 'red';
      }
+//Creando classes para diseno.
+     let classes  =['red', 'bold'].join(' ');
 
      return (
        <div className="App">
           <h1> Hi, I'm a React App </h1>
-          <p> This is really working!!</p>
+          <p className={classes}> This is really working!!</p>
           <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
        </div>
