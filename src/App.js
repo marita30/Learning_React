@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 // import radium para class
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 // Agregando la function Person
 import Person from './Person/Person.js';
 
@@ -103,12 +103,14 @@ togglePersonsHandler = () => {
        classes.push('bold')
      }
      return (
+       <StyleRoot>
        <div className="App">
           <h1> Hi, I'm a React App </h1>
           <p className={classes.join(' ')}> This is really working!!</p>
           <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
        </div>
+       </StyleRoot>
      );
 
   // return React.createElement('div',{ className: 'App'}, null, React.createElement('h1', null, 'Hi, I\'m React App') );
