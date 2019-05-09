@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+// import radium para class
+import Radium from 'radium';
 // Agregando la function Person
 import Person from './Person/Person.js';
 
@@ -63,7 +65,11 @@ togglePersonsHandler = () => {
        font: 'inherit',
        border: '1px solid blue',
        padding: '8px',
-       cursor: 'pointer'
+       cursor: 'pointer',
+       ':hover': {
+         backgroundColor: 'lightgreen',
+         color: 'black'
+       }
      };
 
      let persons = null;
@@ -83,6 +89,10 @@ togglePersonsHandler = () => {
        );
 //Cambiandole el color al boton cuado ya demuestre los nombres que se ponga en rojo.
        style.backgroundColor = 'red';
+       style[':hover'] = {
+         backgroundColor: 'salmon',
+         color: 'black'
+       };
      }
 //Creando classes para diseno.
      const classes  =[];
@@ -105,4 +115,4 @@ togglePersonsHandler = () => {
    }
 }
 
-export default App;
+export default Radium(App);

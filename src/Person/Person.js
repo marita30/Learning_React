@@ -3,6 +3,9 @@ import React from 'react';
 //importamos el css Person.class
 import './Person.css';
 
+//import radium
+import Radium from 'radium';
+
 
 const person = (props) => {
   return (
@@ -15,4 +18,4 @@ const person = (props) => {
  )
 };
 
-export default person;
+export default Radium(person);
