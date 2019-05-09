@@ -58,7 +58,8 @@ togglePersonsHandler = () => {
    render(){
      //Dandole estilo con javascript al botton.
      const style = {
-       backgroundColor: 'white',
+       backgroundColor: 'green',
+       color: 'white',
        font: 'inherit',
        border: '1px solid blue',
        padding: '8px',
@@ -80,6 +81,8 @@ togglePersonsHandler = () => {
             })}
          </div>
        );
+//Cambiandole el color al boton cuado ya demuestre los nombres que se ponga en rojo.
+       style.backgroundColor = 'red';
      }
 
      return (
