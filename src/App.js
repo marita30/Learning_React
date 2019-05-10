@@ -57,18 +57,11 @@ togglePersonsHandler = () => {
  this.setState({showPersons: !doesShow});
 }
 
-   render(){
-     //Dandole estilo con javascript al botton.
-     const style = {
-       backgroundColor: 'green',
-       color: 'white',
-       font: 'inherit',
-       border: '1px solid blue',
-       padding: '8px',
-       cursor: 'pointer'
-     };
+   render() {
+
 
      let persons = null;
+     let btnClass = '';
 
      if ( this.state.showPersons ) {
        persons = (
@@ -83,8 +76,9 @@ togglePersonsHandler = () => {
             })}
          </div>
        );
-//Cambiandole el color al boton cuado ya demuestre los nombres que se ponga en rojo.
-       style.backgroundColor = 'red';
+//Creando variable para las dise;os de css en el archivo App.css, importamos la clase que esta en el archivo css classes.red
+       btnClass = classes.Red
+
 
      }
 //Creando classes para diseno.
@@ -100,7 +94,7 @@ togglePersonsHandler = () => {
        <div className={classes.App}>
           <h1> Hi, I'm a React App </h1>
           <p className={assignedClasses.join(' ')}> This is really working!!</p>
-          <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          <button className= {btnClass} onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
        </div>
 
