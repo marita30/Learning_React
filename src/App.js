@@ -5,6 +5,7 @@ import classes from './App.css';
 // Agregando la function Person
 import Person from './Person/Person.js';
 
+
  class App extends Component {
    //agregando los parametros de Person , name y age en un arreglo.
    state = {
@@ -92,7 +93,7 @@ togglePersonsHandler = () => {
        assignedClasses.push(classes.red);
      }
      if (this.state.persons.legth <= 0){
-       assignedClasses.push(classes.bold)
+       assignedClasses.push(classes.bold);
      }
      return (
 
