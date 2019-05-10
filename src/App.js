@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 
 // Agregando la function Person
 import Person from './Person/Person.js';
@@ -87,16 +87,16 @@ togglePersonsHandler = () => {
 
      }
 //Creando classes para diseno.
-     const classes  =[];
+     const assignedClasses = [];
      if (this.state.persons.length <= 1){
-       classes.push('red');
+       assignedClasses.push(classes.red);
      }
      if (this.state.persons.legth <= 0){
-       classes.push('bold')
+       assignedClasses.push(classes.bold)
      }
      return (
 
-       <div className="App">
+       <div className={classes.App}>
           <h1> Hi, I'm a React App </h1>
           <p className={classes.join(' ')}> This is really working!!</p>
           <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
