@@ -5,6 +5,9 @@ import classes from './App.css';
 // Agregando la function Person
 import Person from './Person/Person.js';
 
+//importando ErrorBoundary
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+
 
  class App extends Component {
    //agregando los parametros de Person , name y age en un arreglo.
@@ -29,16 +32,16 @@ import Person from './Person/Person.js';
    };
 //enfoque alternativo
    // const person = Object.assign({}, this.state.persons[personIndex]);
-
+// actualizo el nombre de la persona
   person.name = event.target.value;
 
-  //Actualizar la matriz de personIndex (copias de la matriz original)
+  //copias de la matriz original
   const persons = [...this.state.persons];
   persons[personIndex] = person;
 
+//Actualizar la matriz de personIndex
 
-
-     this.setState( { persons: persons} )
+   this.setState( { persons: persons} )
    }
 
    //metodo de eliminar persons
@@ -67,12 +70,15 @@ togglePersonsHandler = () => {
        persons = (
          <div>
             {this.state.persons.map((person, index) => {
-              return <Person
+              return(
+                <ErrorBoundary>
+                <Person
                click={() => this.deletePersonHandler(index)}
                name={person.name}
                age={person.age}
                key={person.id}
                changed={(event) => this.nameChangedHandler(event, person.id)}/>
+             </ErrorBoundary>)
             })}
          </div>
        );
