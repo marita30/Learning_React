@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 
 // Agregando la function Person
-import Person from './Person/Person.js';
+import Person from '../components/Persons/Person/Person.js';
 
 //importando ErrorBoundary
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
