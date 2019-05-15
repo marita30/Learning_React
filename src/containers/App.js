@@ -10,6 +10,13 @@ import Cockpit from '../components/Cockpit/Cockpit.js';
 
 
  class App extends Component {
+
+   //creando un componenete llamado Lifecycle
+   constructor (props) {
+     super(props);
+     console.log('[App.js] constructor');
+
+   }
    //agregando los parametros de Person , name y age en un arreglo.
    state = {
      persons: [
@@ -20,6 +27,21 @@ import Cockpit from '../components/Cockpit/Cockpit.js';
      otherState: 'Some other value',
      showPersons: false
    }
+static getDerivedStateFromProps(props, state) {
+  console.log('[App.js] getDerivedStateFromProps', props);
+  return state;
+}
+
+componentWillMount() {
+console.log('[App.js] componentWillMount');  
+}
+
+componentDidMount() {
+  console.log('[App.js]componentDidMount');
+}
+
+
+
 //function for input
  nameChangedHandler = (event, id) => {
    const personIndex = this.state.persons.findIndex(p => {
@@ -53,6 +75,7 @@ togglePersonsHandler = () => {
 }
 
    render() {
+     console.log('[App.js] render');
      let persons = null;
 
      if ( this.state.showPersons ) {
