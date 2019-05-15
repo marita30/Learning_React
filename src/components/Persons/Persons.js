@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component  {
-  //Componente lifecycle App.js
+
   // static getDerivedStateFromProps(props, state) {
   //   console.log('[Persons.js] getDerivedStateFromProps');
   //   return state;
@@ -11,7 +11,7 @@ class Persons extends Component  {
   // componentWillReceiveProps(props) {
   //   console.log('[Persons.js] componentWillReceiveProps', props);
   // }
-
+  //Componente lifecycle App.js
   shouldComponentUpdate(nextProps, nextState){
     console.log('[Persons.js] shouldComponentUpdate');
     return true;
