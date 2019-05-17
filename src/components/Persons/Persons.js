@@ -14,7 +14,13 @@ class Persons extends Component  {
   //Componente lifecycle App.js
   shouldComponentUpdate(nextProps, nextState){
     console.log('[Persons.js] shouldComponentUpdate');
-    return true;
+    //agregando un if para optimazacion.
+    if (nextProps.persons !== this.props.persons) {
+      return true;
+    } else {
+      return false;
+    }
+    // return true;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState){

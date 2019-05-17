@@ -26,6 +26,7 @@ import Cockpit from '../components/Cockpit/Cockpit.js';
      ],
      otherState: 'Some other value',
      showPersons: false,
+     //botton del return.
      showCockpit: true
    }
 static getDerivedStateFromProps(props, state) {
@@ -105,7 +106,7 @@ togglePersonsHandler = () => {
       {this.state.showCockpit ? <Cockpit
        title={this.props.appTitle}
        showPersons={this.state.showPersons}
-       persons={this.state.persons}
+       personsLength={this.state.persons.length}
        clicked={this.togglePersonsHandler}
        /> : null}
           {persons}
